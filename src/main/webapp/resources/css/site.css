@@ -1,0 +1,19 @@
+.bigButton{
+    margin-top: 20px;
+}
+
+.updateAlert{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+    height: 250px;
+    margin-top: -125px;
+    visibility: hidden;
+    width: 400px;
+    margin-left: -200px;
+}
+
+#btnCancelUpdate{
+    background: red;
+}
