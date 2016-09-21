@@ -8,7 +8,8 @@
 
 </head>
 <body>
-	<h1>Hello Shawn</h1>
+	<h1>ECU Carpool App</h1>
 	<a href="/driver">go to driver</a>
+
 </body>
 </html>

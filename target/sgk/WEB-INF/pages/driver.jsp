@@ -14,6 +14,7 @@
 	<div class="container" id="addDriverForm">
 		<form class="form">
 			<h2 class="form-heading">Please add driver</h2>
+			<a href="/">go to home</a>
 			<label for="firstName" class="sr-only">First Name</label>
 			<input type="text" id="firstName" class="form-control" placeholder="First Name" required autofocus>
 			<label for="lastName" class="sr-only">Last Name</label>
