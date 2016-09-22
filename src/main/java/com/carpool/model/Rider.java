@@ -7,7 +7,7 @@ package com.carpool.model;
 
 public class Rider {
 
-  private int RiderId;
+  private int riderId;
 
 
   public Rider(){
@@ -15,7 +15,7 @@ public class Rider {
   }
 
   public int getRiderId() {
-    return RiderId;
+    return riderId;
   }
 
 
