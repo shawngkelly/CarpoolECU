@@ -10,6 +10,6 @@
 <body>
 	<h1>ECU Carpool App</h1>
 	<a href="/driver">go to driver</a>
-
+    <a href="/student">go to student</a>
 </body>
 </html>
