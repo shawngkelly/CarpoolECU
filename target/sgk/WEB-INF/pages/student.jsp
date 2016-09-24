@@ -166,7 +166,8 @@
             sorting:false,
             formatters: {
                 "commands": function (column, row) {
-                    return "<button fName=\""+row.firstName+"\" lName=\""+row.lastName+"\" type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.driverId + "\"><span class=\"glyphicon glyphicon-pencil\"></span></button> " +
+                    return
+                    "<button fName=\""+row.firstName+"\" eMail=\""+row.email+"\" lName=\""+row.lastName+"\" type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.driverId + "\"><span class=\"glyphicon glyphicon-pencil\"></span></button> " +
                             "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.driverId + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
                 }
             }
