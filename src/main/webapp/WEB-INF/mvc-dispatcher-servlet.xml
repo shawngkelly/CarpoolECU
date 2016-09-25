@@ -47,4 +47,18 @@
     </bean>
 
 
+
+    <bean id="studentDAO" class="com.carpool.dao.StudentDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="studentService" class="com.carpool.service.StudentService">
+        <property name="studentDAO" ref="studentDAO"/>
+    </bean>
+
+    <bean id="studentController"
+          class="com.carpool.controller.StudentController">
+        <property name="studentService" ref="studentService"/>
+    </bean>
+
 </beans>
