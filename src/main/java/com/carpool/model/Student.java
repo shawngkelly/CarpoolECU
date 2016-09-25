@@ -9,8 +9,8 @@ public class Student
   private String firstName;
   private String lastName;
   private String email;
-  private boolean yesDriver;
-  private boolean yesRider;
+  private boolean driver;
+  private boolean rider;
 
   public int getIdStudent()
   {
@@ -52,24 +52,24 @@ public class Student
     this.email = email;
   }
 
-  public boolean isYesDriver()
+  public boolean isDriver()
   {
-    return yesDriver;
+    return driver;
   }
 
-  public void setYesDriver(boolean yesDriver)
+  public void setDriver(boolean driver)
   {
-    this.yesDriver = yesDriver;
+    this.driver = driver;
   }
 
-  public boolean isYesRider()
+  public boolean isRider()
   {
-    return yesRider;
+    return rider;
   }
 
-  public void setYesRider(boolean yesRider)
+  public void setRider(boolean rider)
   {
-    this.yesRider = yesRider;
+    this.rider = rider;
   }
 
 

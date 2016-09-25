@@ -24,7 +24,7 @@
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Student" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://us-cdbr-azure-east-c.cloudapp.net:3306/sgk" />
         <property name="username" value="b02e51c3da7812" />
         <property name="password" value="749eda39" />
@@ -45,6 +45,8 @@
     <bean id="driverController" class="com.carpool.controller.DriverController">
         <property name="driverService" ref="driverService"/>
     </bean>
+
+
 
     <bean id="studentDAO" class="com.carpool.dao.StudentDAO">
         <property name="jdbcTemplate" ref="jdbcTemplate" />

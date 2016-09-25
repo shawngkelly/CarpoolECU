@@ -14,10 +14,12 @@ import java.util.List;
 public class StudentDAO {
 
   private String SELECT = "SELECT * FROM student;";
-  private String INSERT = "INSERT INTO student (firstName,lastName) values "
-      + " (?,?);";
+  private String INSERT = "INSERT INTO student (firstName,lastName, email, " +
+      "driver, rider) values "
+      + " (?,?,?,?,?);";
 
-  private String UPDATE = "UPDATE student SET firstName = ?, lastName = ? " +
+  private String UPDATE = "UPDATE student SET firstName = ?, lastName = ?, " +
+      "email =?, driver = ?, rider = ? " +
       "WHERE " +
       "idStudent = ?;";
   private String DELETE = "DELETE from student where idStudent = ?;";
@@ -40,12 +42,13 @@ public class StudentDAO {
 
   public int insertStudent(Student student){
     return jdbcTemplate.update(INSERT,new Object[]{student.getFirstName(),
-        student.getLastName()});
+        student.getLastName(),student.getEmail(),student.isDriver(),student.isRider()});
   }
 
   public int updateStudent(Student student){
     return jdbcTemplate.update(UPDATE,new Object[]{student.getFirstName(),
-        student.getLastName(), student.getIdStudent()});
+        student.getLastName(), student.getIdStudent(), student.getEmail(),
+        student.isDriver(),student.isRider()});
   }
 
   public int deleteStudent(int idStudent){
@@ -60,6 +63,9 @@ public class StudentDAO {
       student.setIdStudent(resultSet.getInt("idStudent"));
       student.setFirstName(resultSet.getString("firstName"));
       student.setLastName(resultSet.getString("lastName"));
+      student.setEmail(resultSet.getString("email"));
+      student.setDriver(resultSet.getBoolean("driver"));
+      student.setRider(resultSet.getBoolean("rider"));
       return student;
     }
   }

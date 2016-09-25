@@ -29,11 +29,16 @@
         <label for="email" class="sr-only">Email</label>
         <input type="text" id="email" class="form-control"
                placeholder="Email" required>
-        <label for="Driver?" class="sr-only">Driver?</label>
-        <input type="checkbox" id="Driver?" class="from-control"
-               placeholder="Driver?" required>
-        <label for="Rider?" class="sr-only">Rider?</label>
-        <input type="checkbox" id="Rider?" required>
+        <label for="driver" class="sr-only">Driver</label>
+         <%--<input type="checkbox" id="Driver" class="from-control"
+               placeholder="Driver" required> --%>
+        <input type="text" id="driver" class="form-control"
+               placeholder="Driver" required>
+        <label for="rider" class="sr-only">Rider</label>
+        <%--<input type="checkbox" id="Rider" class="form-control"
+               placeholder="Rider" required> --%>
+        <input type="text" id="rider" class="form-control"
+               placeholder="Rider?" required>
 
         <button id="btnSubmit"
                 class="btn btn-lg btn-primary btn-block bigButton"
@@ -46,8 +51,8 @@
             <th data-column-id="firstName">First Name</th>
             <th data-column-id="lastName">Last Name</th>
             <th data-column-id="email">Email</th>
-            <th data-column-id="Driver?">Driver?</th>
-            <th data-column-id="Rider?">Rider?</th>
+            <th data-column-id="driver">Driver</th>
+            <th data-column-id="rider">Rider</th>
             <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
         </tr>
         </thead>
@@ -60,14 +65,24 @@
         <label for="emailUpdate" class="sr-only">Email</label>
         <input type="text" id="emailUpdate" class="form-control"
                placeholder="Email" required>
-        <label for="Driver?update" class="sr-only">Driver?</label>
-        <input type="checkbox" id="Driver?update" class="from-control"
-               placeholder="Driver?" required>
-        <label for="Rider?update" class="sr-only">Rider?</label>
-        <input type="checkbox" id="Rider?update" required>
-        <button id="btnSubmitUpdate" class="btn btn-lg btn-primary btn-block bigButton" type="button">Update Driver</button>
+
+        <label for="driverUpdate" class="sr-only">Driver</label>
+        <%--<input type="checkbox" id="Driver?update" class="from-control"
+               placeholder="Driver?" required> --%>
+        <input type="text" id="driverUpdate" class="form-control"
+               placeholder="Driver" required>
+        <label for="riderUpdate" class="sr-only">Rider</label>
+        <%--<input type="checkbox" id="Rider?update" required> --%>
+        <input type="text" id="riderUpdate" class="form-control"
+               placeholder="Rider?" required>
+
+        <button id="btnSubmitUpdate"
+                class="btn btn-lg btn-primary btn-block bigButton"
+                type="button">Update Student</button>
+
         <button id="btnCancelUpdate" class="btn btn-lg btn-primary btn-block bigButton" type="button">Cancel</button>
     </div>
+
 </div> <!-- /container -->
 <script src="${jquery}"></script>
 <script src="${js}"></script>
@@ -83,8 +98,11 @@
             data["firstName"] = $("#firstName").val();
             data["lastName"] = $("#lastName").val();
             data["email"] = $("#email").val();
-            data["Driver?"] = $(".Driver?").attr('checked', true);
-            data["Rider?"] = $(".Rider?").attr('checked', true);
+
+            data["driver"] = $("#driver").val();
+            data["rider"] = $("#rider").val();
+            <%--data["driver"] = $(".driver").attr('checked', true);
+            data["rider"] = $(".rider").attr('checked', true); --%>
 
             $.ajax({
                 type: "POST",
@@ -100,9 +118,13 @@
                 success: function (data) {
                     $("#firstName").val("");
                     $("#lastName").val("");
-                    $("#email").val();
-                    $(".Driver?").attr('checked', true);
-                    $(".Rider?").attr('checked', true);
+                    $("#email").val("");
+                    $("#driver").val("");
+                    $("#rider").val("");
+
+                    <%--$(".driver").attr('checked', true);
+                    $(".rider").attr('checked', true); --%>
+
                     $("#grid-data").bootgrid("reload");
                 },
                 error: function (e) {
@@ -116,11 +138,15 @@
             event.preventDefault();
             var data = {};
             data.idStudent = targetId;
-            data["firstName"] = $("#firstNameUpdate").val();
-            data["lastName"] = $("#lastNameUpdate").val();
-            data["email"] = $("#emailUpdate").val();
-            data["Driver?"] = $(".Driver?update").attr('checked', true);
-            data["Rider?"] = $(".Rider?update").attr('checked', true);
+            data["firstName"] = $("#firstNameUpdate").val("");
+            data["lastName"] = $("#lastNameUpdate").val("");
+            data["email"] = $("#emailUpdate").val("");
+            data["driver"] = $("#driverUpdate").val("");
+            data["rider"] = $("#riderUpdate").val("");
+
+            <%--data["driver"] = $(".driverUpdate").attr('checked', true);
+            data["rider"] = $(".riderUpdate").attr('checked', true); --%>
+
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
@@ -136,8 +162,13 @@
                     $("#firstNameUpdate").val("");
                     $("#lastNameUpdate").val("");
                     $("#emailUpdate").val("");
-                    $(".Driver?update").attr('checked', true);
-                    $(".Rider?update").attr('checked', true);
+                    $("#driverUpdate").val("");
+                    $("#riderUpdate").val("");
+
+
+                    <%--$(".driverUpdate").attr('checked', true);
+                    $(".riderUpdate").attr('checked', true); --%>
+
                     $("#updateAlert").css("visibility", "hidden");
                     $("#grid-data").bootgrid("reload");
                 },
@@ -153,28 +184,61 @@
             $("#firstNameUpdate").val("");
             $("#lastNameUpdate").val("");
             $("#emailUpdate").val("");
-            $(".Driver?update").attr('checked', true);
-            $(".Rider?update").attr('checked', true);
+            $("#driverUpdate").val("");
+            $("#riderUpdate").val("");
+
+            <%-- $(".Driver?update").attr('checked', true);
+            $(".Rider?update").attr('checked', true); --%>
         });
 
         //set up grid
         var grid = $("#grid-data").bootgrid({
             ajax: true,
             url: "/student/list",
-            navigation:0,
-            selection:true,
-            sorting:false,
+            navigation: 0,
+            selection: true,
+            sorting: false,
             formatters: {
                 "commands": function (column, row) {
-                    return
-                    "<button fName=\""+row.firstName+"\" eMail=\""+row.email+"\" lName=\""+row.lastName+"\" type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.driverId + "\"><span class=\"glyphicon glyphicon-pencil\"></span></button> " +
-                            "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.driverId + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+                    return"<button fName=\"" + row.firstName + "\"  lName=\"" + row.lastName + "\" eMail=\"" + row.email + "\" driver=\"" + row.driver + "\" rider=\"" + row.rider + "\" type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.idStudent + "\"><span class=\"glyphicon glyphicon-pencil\"></span></button> " +
+                    "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.idStudent + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
                 }
             }
-        }).on("loaded.rs.jquery.bootgrid", function()
+        }).on("loaded.rs.jquery.bootgrid", function () {
+
+            /* Executes after data is loaded and rendered */
+            grid.find(".command-edit").on("click", function (e) {
+                targetId = $(this).data("row-id");
+                $("#firstNameUpdate").val($(this).attr("fName"));
+                $("#lastNameUpdate").val($(this).attr("lName"));
+                $("#emailUpdate").val($(this).attr("eMail"));
+                $("#driverUpdate").val($(this).attr("rider"));
+                $("#riderUpdate").val($(this).attr("driver"));
+
+                $("#updateAlert").css("visibility", "visible");
+            }).end().find(".command-delete").on("click", function (e) {
+                var bool = confirm("Are you sure?");
+                if (bool) {
+                    $.ajax({
+                        type: "GET",
+                        url: "/student/delete/" + $(this).data("row-id"),
+                        dataType: 'text',
+                        timeout: 600000,
+                        success: function (data) {
+                            $("#grid-data").bootgrid("reload");
+                        },
+                        error: function (e) {
+                            alert("An error occurred");
+                        }
+                    });
+                }
+            });
+        });
+    });
 
 
 
-        <%--</body>--%>
 
+</script>
+</body>
 </html>
