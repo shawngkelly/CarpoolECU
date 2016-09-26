@@ -30,11 +30,11 @@
         <input type="text" id="email" class="form-control"
                placeholder="Email" required>
         <%--<label for="driver" class="sr-only">Driver</label>--%>
-        <input type="checkbox" name="Driver" value="Driver"> Driver
+        <input type="checkbox" id="Driver" class="form-control" value="Driver"> Driver
         <%--input type="text" id="driver" class="form-control"
                placeholder="Driver" required--%>
        <%--<label for="rider" class="sr-only">Rider</label>--%>
-        <input type="checkbox" name="Rider" value="Rider"> Rider
+        <input type="checkbox" id="Rider" class="form-control" value="Rider"> Rider
         <%--input type="text" id="rider" class="form-control"
                placeholder="Rider?" required--%>
 
@@ -65,11 +65,11 @@
                placeholder="Email" required>
 
         <%--<label for="driver" class="sr-only">Driver</label>--%>
-        <input type="checkbox" name="Driver" value="Driver"> Driver
+        <input type="checkbox" id="DriverUpdate" class="form-control" value="DriverUpdate"> Driver
         <%--input type="text" id="driver" class="form-control"
                placeholder="Driver" required--%>
         <%--<label for="rider" class="sr-only">Rider</label>--%>
-        <input type="checkbox" name="Rider" value="Rider"> Rider
+        <input type="checkbox" id="RiderUpdate" class="form-control" value="RiderUpdate"> Rider
         <%--input type="text" id="rider" class="form-control"
                placeholder="Rider?" required--%>
 
@@ -96,8 +96,8 @@
             data["lastName"] = $("#lastName").val();
             data["email"] = $("#email").val();
 
-            data["driver"] = $("#driver").val();
-            data["rider"] = $("#rider").val();
+            data["driver"] = $("#Driver").is(":checked");
+            data["rider"] = $("#Rider").is(":checked");
             <%--data["driver"] = $(".driver").attr('checked', true);
             data["rider"] = $(".rider").attr('checked', true); --%>
 
@@ -116,8 +116,8 @@
                     $("#firstName").val("");
                     $("#lastName").val("");
                     $("#email").val("");
-                    $("#driver").val("");
-                    $("#rider").val("");
+                    $("#Driver").is(":checked");
+                    $("#Rider").is(":checked");
 
                     <%--$(".driver").attr('checked', true);
                     $(".rider").attr('checked', true); --%>
@@ -138,8 +138,8 @@
             data["firstName"] = $("#firstNameUpdate").val("");
             data["lastName"] = $("#lastNameUpdate").val("");
             data["email"] = $("#emailUpdate").val("");
-            data["driver"] = $("#driverUpdate").val("");
-            data["rider"] = $("#riderUpdate").val("");
+            data["driver"] = $("#DriverUpdate").is(":checked");
+            data["rider"] = $("#RiderUpdate").is(":checked");
             //data{"driver"} = document.getElementById("checkbox").checked;
             //data["rider"] = document.getElementById("checkbox").checked;
 
@@ -161,8 +161,8 @@
                     $("#firstNameUpdate").val("");
                     $("#lastNameUpdate").val("");
                     $("#emailUpdate").val("");
-                    $("#driverUpdate").val("");
-                    $("#riderUpdate").val("");
+                    $("#DriverUpdate").is(":checked");
+                    $("#RiderUpdate").is(":checked");
 
 
                     <%--$(".driverUpdate").attr('checked', true);
@@ -183,8 +183,8 @@
             $("#firstNameUpdate").val("");
             $("#lastNameUpdate").val("");
             $("#emailUpdate").val("");
-            $("#driverUpdate").val("");
-            $("#riderUpdate").val("");
+            $("#DriverUpdate").is(":checked");
+            $("#RiderUpdate").is(":checked");
 
             <%-- $(".Driver?update").attr('checked', true);
             $(".Rider?update").attr('checked', true); --%>
@@ -211,8 +211,8 @@
                 $("#firstNameUpdate").val($(this).attr("fName"));
                 $("#lastNameUpdate").val($(this).attr("lName"));
                 $("#emailUpdate").val($(this).attr("eMail"));
-                $("#driverUpdate").val($(this).attr("rider"));
-                $("#riderUpdate").val($(this).attr("driver"));
+                $("#DriverUpdate").is($(this).attr("rider"));
+                $("#RiderUpdate").is($(this).attr("driver"));
 
                 $("#updateAlert").css("visibility", "visible");
             }).end().find(".command-delete").on("click", function (e) {
