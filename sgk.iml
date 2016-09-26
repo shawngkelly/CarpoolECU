@@ -18,6 +18,7 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/carpool/controller/target/sgk/WEB-INF/mvc-dispatcher-servlet.xml</file>
         </fileset>
       </configuration>
     </facet>

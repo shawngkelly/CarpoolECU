@@ -29,16 +29,14 @@
         <label for="email" class="sr-only">Email</label>
         <input type="text" id="email" class="form-control"
                placeholder="Email" required>
-        <label for="driver" class="sr-only">Driver</label>
-         <%--<input type="checkbox" id="Driver" class="from-control"
-               placeholder="Driver" required> --%>
-        <input type="text" id="driver" class="form-control"
-               placeholder="Driver" required>
-        <label for="rider" class="sr-only">Rider</label>
-        <%--<input type="checkbox" id="Rider" class="form-control"
-               placeholder="Rider" required> --%>
-        <input type="text" id="rider" class="form-control"
-               placeholder="Rider?" required>
+        <%--<label for="driver" class="sr-only">Driver</label>--%>
+        <input type="checkbox" name="Driver" value="Driver"> Driver
+        <%--input type="text" id="driver" class="form-control"
+               placeholder="Driver" required--%>
+       <%--<label for="rider" class="sr-only">Rider</label>--%>
+        <input type="checkbox" name="Rider" value="Rider"> Rider
+        <%--input type="text" id="rider" class="form-control"
+               placeholder="Rider?" required--%>
 
         <button id="btnSubmit"
                 class="btn btn-lg btn-primary btn-block bigButton"
@@ -66,15 +64,14 @@
         <input type="text" id="emailUpdate" class="form-control"
                placeholder="Email" required>
 
-        <label for="driverUpdate" class="sr-only">Driver</label>
-        <%--<input type="checkbox" id="Driver?update" class="from-control"
-               placeholder="Driver?" required> --%>
-        <input type="text" id="driverUpdate" class="form-control"
-               placeholder="Driver" required>
-        <label for="riderUpdate" class="sr-only">Rider</label>
-        <%--<input type="checkbox" id="Rider?update" required> --%>
-        <input type="text" id="riderUpdate" class="form-control"
-               placeholder="Rider?" required>
+        <%--<label for="driver" class="sr-only">Driver</label>--%>
+        <input type="checkbox" name="Driver" value="Driver"> Driver
+        <%--input type="text" id="driver" class="form-control"
+               placeholder="Driver" required--%>
+        <%--<label for="rider" class="sr-only">Rider</label>--%>
+        <input type="checkbox" name="Rider" value="Rider"> Rider
+        <%--input type="text" id="rider" class="form-control"
+               placeholder="Rider?" required--%>
 
         <button id="btnSubmitUpdate"
                 class="btn btn-lg btn-primary btn-block bigButton"
@@ -143,6 +140,8 @@
             data["email"] = $("#emailUpdate").val("");
             data["driver"] = $("#driverUpdate").val("");
             data["rider"] = $("#riderUpdate").val("");
+            //data{"driver"} = document.getElementById("checkbox").checked;
+            //data["rider"] = document.getElementById("checkbox").checked;
 
             <%--data["driver"] = $(".driverUpdate").attr('checked', true);
             data["rider"] = $(".riderUpdate").attr('checked', true); --%>
