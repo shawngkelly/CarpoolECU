@@ -211,8 +211,8 @@
                 $("#firstNameUpdate").val($(this).attr("fName"));
                 $("#lastNameUpdate").val($(this).attr("lName"));
                 $("#emailUpdate").val($(this).attr("eMail"));
-                $("#DriverUpdate").is($(this).attr("rider"));
-                $("#RiderUpdate").is($(this).attr("driver"));
+                $("#DriverUpdate").val($(this).attr("rider"));
+                $("#RiderUpdate").val($(this).attr("driver"));
 
                 $("#updateAlert").css("visibility", "visible");
             }).end().find(".command-delete").on("click", function (e) {
