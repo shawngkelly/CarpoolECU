@@ -67,7 +67,7 @@
         <%--<label for="driver" class="sr-only">Driver</label>--%>
         <input type="checkbox" id="DriverUpdate" class="form-control" value="DriverUpdate"> Driver
         <%--input type="text" id="driver" class="form-control"
-               placeholder="Driver" required--%>
+                    placeholder="Driver" required--%>
         <%--<label for="rider" class="sr-only">Rider</label>--%>
         <input type="checkbox" id="RiderUpdate" class="form-control" value="RiderUpdate"> Rider
         <%--input type="text" id="rider" class="form-control"
@@ -200,7 +200,7 @@
             formatters: {
                 "commands": function (column, row) {
                     return"<button fName=\"" + row.firstName + "\"  lName=\"" + row.lastName + "\" eMail=\"" + row.email + "\" driver=\"" + row.driver + "\" rider=\"" + row.rider + "\" type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.idStudent + "\"><span class=\"glyphicon glyphicon-pencil\"></span></button> " +
-                    "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.idStudent + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+                    "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row. idStudent + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
