@@ -18,3 +18,7 @@
     background-color: #5747d8;
     border-color: #5747d8;
 }
+.chxbox-label {
+    padding-left: 10px;
+    font-weight: bold;
+}

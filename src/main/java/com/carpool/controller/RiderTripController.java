@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/ridertrip/")
+@RequestMapping("/riderTrip")
 public class RiderTripController {
 
   private RiderTripService riderTripService;
@@ -22,7 +22,7 @@ public class RiderTripController {
 
   @RequestMapping(method = RequestMethod.GET)
   public String loadHome(ModelMap model) {
-    return "ridertrip";
+    return "riderTrip";
   }
   @ResponseBody
   @RequestMapping(value = "/list", method = RequestMethod.POST)
@@ -39,8 +39,8 @@ public class RiderTripController {
 
   @ResponseBody
   @RequestMapping(value = "/delete/{riderTripID}", method = RequestMethod.GET)
-  public int deleteStudent(@PathVariable("riderTripID") int riderTridID) {
-    return riderTripService.deleteRiderTrip(riderTridID);
+  public int deleteStudent(@PathVariable("riderTripID") int riderTripID) {
+    return riderTripService.deleteRiderTrip(riderTripID);
   }
 
   @ResponseBody

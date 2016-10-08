@@ -22,6 +22,10 @@
     <form class="form">
         <h2 class="form-heading">Please add Student</h2>
         <a href="/">go to home</a>
+
+        <%---The for and id need to match. The id's will be used later because
+        they are being mapped for updates and inserts.---%>
+
         <label for="firstName" class="sr-only">First Name</label>
         <input type="text" id="firstName" class="form-control" placeholder="First Name" required autofocus>
         <label for="lastName" class="sr-only">Last Name</label>
@@ -29,23 +33,48 @@
         <label for="email" class="sr-only">Email</label>
         <input type="text" id="email" class="form-control"
                placeholder="Email" required>
-        <%--<label for="driver" class="sr-only">Driver</label>--%>
-        <input type="checkbox" id="Driver" class="form-control" value="Driver"> Driver
-        <%--input type="text" id="driver" class="form-control"
+
+        <%---- THIS ROW SETS THE DRIVER AND RIDER CLICK ROWS ---%>
+        <div class="row">
+            <div class="col-sm-1">
+                <label for="driver">Driver</label>
+            </div>
+
+            <div class="col-sm-1">
+                <input type="checkbox" id="driver" class="form-control"/>
+            </div>
+
+            <div class="col-sm-1">
+                <label for="rider">Rider</label>
+            </div>
+
+            <div class="col-sm-1">
+                <input type="checkbox" id="rider" class="form-control"
+                       value="Rider">
+            </div>
+
+            <%--input type="text" id="driver" class="form-control"
                placeholder="Driver" required--%>
-       <%--<label for="rider" class="sr-only">Rider</label>--%>
-        <input type="checkbox" id="Rider" class="form-control" value="Rider"> Rider
-        <%--input type="text" id="rider" class="form-control"
-               placeholder="Rider?" required--%>
+            <%----<label for="rider" class="sr-only">Rider</label>-----%>
+
+
+            <%--input type="text" id="rider" class="form-control"
+                   placeholder="Rider?" required--%>
+        </div>
+
 
         <button id="btnSubmit"
                 class="btn btn-lg btn-primary btn-block bigButton"
                 type="button">Add Student</button>
     </form>
+
+    <%-----These id's neet to match what is in model.-------%>
+
     <table id="grid-data" class="table table-condensed table-hover table-striped">
         <thead>
         <tr>
             <th data-column-id="idStudent" data-type="numeric">ID</th>
+
             <th data-column-id="firstName">First Name</th>
             <th data-column-id="lastName">Last Name</th>
             <th data-column-id="email">Email</th>
@@ -85,6 +114,7 @@
 <script src="${js}"></script>
 <script src="${grid}"></script>
 <script>
+
     $(document).ready(function () {
         var targetId;
 
@@ -98,8 +128,6 @@
 
             data["driver"] = $("#Driver").is(":checked");
             data["rider"] = $("#Rider").is(":checked");
-            <%--data["driver"] = $(".driver").attr('checked', true);
-            data["rider"] = $(".rider").attr('checked', true); --%>
 
             $.ajax({
                 type: "POST",
@@ -116,11 +144,9 @@
                     $("#firstName").val("");
                     $("#lastName").val("");
                     $("#email").val("");
-                    $("#Driver").is(":checked");
-                    $("#Rider").is(":checked");
+                    $("#Driver").prop('checked', false);
+                    $("#Rider").prop('checked', false);   //Resets form
 
-                    <%--$(".driver").attr('checked', true);
-                    $(".rider").attr('checked', true); --%>
 
                     $("#grid-data").bootgrid("reload");
                 },
@@ -131,20 +157,16 @@
         });
 
         //set up alert
+
         $("#btnSubmitUpdate").click(function (event) {
             event.preventDefault();
             var data = {};
             data.idStudent = targetId;
-            data["firstName"] = $("#firstNameUpdate").val("");
-            data["lastName"] = $("#lastNameUpdate").val("");
-            data["email"] = $("#emailUpdate").val("");
+            data["firstName"] = $("#firstNameUpdate").val();
+            data["lastName"] = $("#lastNameUpdate").val();
+            data["email"] = $("#emailUpdate").val();
             data["driver"] = $("#DriverUpdate").is(":checked");
             data["rider"] = $("#RiderUpdate").is(":checked");
-            //data{"driver"} = document.getElementById("checkbox").checked;
-            //data["rider"] = document.getElementById("checkbox").checked;
-
-            <%--data["driver"] = $(".driverUpdate").attr('checked', true);
-            data["rider"] = $(".riderUpdate").attr('checked', true); --%>
 
             $.ajax({
                 type: "POST",
@@ -161,8 +183,8 @@
                     $("#firstNameUpdate").val("");
                     $("#lastNameUpdate").val("");
                     $("#emailUpdate").val("");
-                    $("#DriverUpdate").is(":checked");
-                    $("#RiderUpdate").is(":checked");
+                    $("#DriverUpdate").prop('checked', false);
+                    $("#RiderUpdate").prop('checked',false);
 
 
                     <%--$(".driverUpdate").attr('checked', true);
@@ -186,8 +208,6 @@
             $("#DriverUpdate").is(":checked");
             $("#RiderUpdate").is(":checked");
 
-            <%-- $(".Driver?update").attr('checked', true);
-            $(".Rider?update").attr('checked', true); --%>
         });
 
         //set up grid
@@ -199,8 +219,9 @@
             sorting: false,
             formatters: {
                 "commands": function (column, row) {
-                    return"<button fName=\"" + row.firstName + "\"  lName=\"" + row.lastName + "\" eMail=\"" + row.email + "\" driver=\"" + row.driver + "\" rider=\"" + row.rider + "\" type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.idStudent + "\"><span class=\"glyphicon glyphicon-pencil\"></span></button> " +
-                    "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row. idStudent + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
+
+                    return "<button fName=\"" + row.firstName + "\"  lName=\"" + row.lastName + "\" eMail=\"" + row.email + "\" driver=\"" + row.driver + "\" rider=\"" + row.rider + "\" type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.idStudent + "\"><span class=\"glyphicon glyphicon-pencil\"></span></button> " +
+                    "<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.idStudent + "\"><span class=\"glyphicon glyphicon-trash\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
@@ -211,8 +232,10 @@
                 $("#firstNameUpdate").val($(this).attr("fName"));
                 $("#lastNameUpdate").val($(this).attr("lName"));
                 $("#emailUpdate").val($(this).attr("eMail"));
-                $("#DriverUpdate").val($(this).attr("rider"));
-                $("#RiderUpdate").val($(this).attr("driver"));
+                $("#DriverUpdate").prop('checked' ,
+                        $(this).attr("driver" ) =='true');
+                $("#RiderUpdate").prop('checked' ,$(this).attr("rider") ==
+                        'true');
 
                 $("#updateAlert").css("visibility", "visible");
             }).end().find(".command-delete").on("click", function (e) {

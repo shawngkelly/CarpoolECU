@@ -41,14 +41,17 @@ public class StudentDAO {
   }
 
   public int insertStudent(Student student){
-    return jdbcTemplate.update(INSERT,new Object[]{student.getFirstName(),
-        student.getLastName(),student.getEmail(),student.isDriver(),student.isRider()});
+    return jdbcTemplate.update(INSERT, student.getFirstName(),
+        student.getLastName(),student.getEmail(),student.isDriver(),student.isRider());
   }
 
   public int updateStudent(Student student){
-    return jdbcTemplate.update(UPDATE,new Object[]{student.getFirstName(),
-        student.getLastName(), student.getIdStudent(), student.getEmail(),
-        student.isDriver(),student.isRider()});
+    return jdbcTemplate.update(UPDATE, student.getFirstName(),
+        student.getLastName(), student.getEmail(),
+        student.isDriver() ? 1 : 0,student.isRider() ? 1 :0, student.getIdStudent());
+
+    //Fixed the by correcting isDriver and putting getIdStudent
+
   }
 
   public int deleteStudent(int idStudent){

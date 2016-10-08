@@ -4,6 +4,7 @@ import com.carpool.model.RiderTrip;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -15,15 +16,15 @@ import java.util.List;
 public class RiderTripDAO
 {
   private String SELECT = "SELECT * FROM riderTrip;";
-  private String INSERT = "INSERT INTO riderTrip (riderTripID, riderID, " +
-      "departDate, returnDate, city, values (?,?,?,?,?);";
 
-  private String UPDATE = "UPDATE riderTrip SET riderTripID = ?, riderID = " +
-      "?, " +
-      "departDate =?, returnDate = ?, city = ? " +
+  private String INSERT = "INSERT INTO ridertrip (riderID, DepartDate,ReturnDate,City) VALUES" +
+      " (?,?,?,?);";
+
+  private String UPDATE = "UPDATE ridertrip SET riderID = ?, departDate =?, " +
+      "returnDate = ?, city = ? " +
       "WHERE " +
-      "riderID = ?;";
-  private String DELETE = "DELETE from riderTrip where riderID = ?;";
+      "riderTripID = ?;";
+  private String DELETE = "DELETE from riderTrip where riderTripID = ?;";
 
   private JdbcTemplate jdbcTemplate;
 
@@ -42,15 +43,15 @@ public class RiderTripDAO
   }
 
   public int insertRiderTrip(RiderTrip riderTrip){
-    return jdbcTemplate.update(INSERT,new Object[]{riderTrip.getRiderTripID(),
-       riderTrip.getRiderID(),riderTrip.getDepartDate(),riderTrip
-        .getReturnDate(),riderTrip.getCity()});
+    return jdbcTemplate.update(INSERT, riderTrip.getRiderID(),new Date
+        (riderTrip.getDepartDate().getTime()),
+        new Date(riderTrip.getReturnDate().getTime()),riderTrip.getCity());
   }
 
   public int updateRiderTrip(RiderTrip riderTrip){
-    return jdbcTemplate.update(UPDATE,new Object[]{riderTrip.getRiderTripID(),
-        riderTrip.getRiderID(), riderTrip.getDepartDate(), riderTrip.getReturnDate(),
-        riderTrip.getCity()});
+    return jdbcTemplate.update(UPDATE, riderTrip.getRiderID(), new Date(riderTrip.getDepartDate().getTime())
+        , new Date(riderTrip.getReturnDate().getTime()),
+        riderTrip.getCity(), riderTrip.getRiderTripID());
   }
 
   public int deleteRiderTrip(int riderTripID){
@@ -64,8 +65,8 @@ public class RiderTripDAO
       RiderTrip riderTrip = new RiderTrip();
       riderTrip.setRiderTripID(resultSet.getInt("riderTripID"));
       riderTrip.setRiderID(resultSet.getInt("riderID"));
-      riderTrip.setDepartDate(resultSet.getDate("departDate"));
-      riderTrip.setReturnDate(resultSet.getDate("returnDate"));
+      riderTrip.setDepartDate(resultSet.getDate("DepartDate"));
+      riderTrip.setReturnDate(resultSet.getDate("ReturnDate"));
       riderTrip.setCity(resultSet.getString("city"));
       return riderTrip;
     }
