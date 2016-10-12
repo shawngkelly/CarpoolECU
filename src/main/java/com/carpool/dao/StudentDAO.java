@@ -18,6 +18,10 @@ public class StudentDAO {
       "driver, rider) values "
       + " (?,?,?,?,?);";
 
+
+
+
+
   private String UPDATE = "UPDATE student SET firstName = ?, lastName = ?, " +
       "email =?, driver = ?, rider = ? " +
       "WHERE " +
@@ -39,6 +43,8 @@ public class StudentDAO {
         StudentRowMapper());
     return students;
   }
+
+
 
   public int insertStudent(Student student){
     return jdbcTemplate.update(INSERT, student.getFirstName(),

@@ -74,4 +74,17 @@
         <property name="riderTripService" ref="riderTripService"/>
     </bean>
 
+    <bean id="reportDAO" class="com.carpool.dao.ReportDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="reportService" class="com.carpool.service.ReportService">
+        <property name="reportDAO" ref="reportDAO"/>
+    </bean>
+
+    <bean id="reportController"
+          class="com.carpool.controller.ReportController">
+        <property name="reportService" ref="reportService"/>
+    </bean>
+
 </beans>

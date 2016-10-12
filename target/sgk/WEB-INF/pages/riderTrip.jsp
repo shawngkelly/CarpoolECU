@@ -23,6 +23,7 @@
          <form class="form">
              <h2 class="form-heading">Add Rider Trip</h2>
              <a href="/">Go to Home Page</a>
+             <a href="/student">Update Student</a>
              <label for="riderID" class="sr-only">Rider ID</label>
              <input type="number" id="riderID" class="form-control"
                     placeholder="Rider ID" required autofocus>
@@ -86,6 +87,9 @@
 <script src="${js}"></script>
 <script src="${grid}"></script>
 <script>
+
+    <%-- Used to convert date to proper format for SQL ---%>
+
     function splitDate(dateIn){
         var arr = dateIn.split("-");
         return new Date(arr[0],arr[1]-1,arr[2]);
@@ -114,6 +118,9 @@
                 dataType: 'json',
                 timeout: 600000,
                 success: function (data) {
+                    if (data ==0 ) {
+                        alert("Student is not a rider");
+                    }
                     $("riderID").val("");
                     $("departDate").val("");
                     $("returnDate").val("");

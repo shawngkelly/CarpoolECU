@@ -16,6 +16,8 @@
 		Students</a>
 	<a href="/riderTrip" id="button2" class="btn btn-info"
 	role="button">Update Rider Trip</a>
+	<a href="/report" id =button3" class="btn btn-info" role="button">Go to
+	Reports</a>
 
 </body>
 </html>
