@@ -38,13 +38,13 @@
                class ="table table-condensed table-hover table-striped">
             <thead>
             <tr>
-                <th data-column-id="col1" data-type="txt">col1</th>
-                <th data-column-id="col2" data-type="txt">col2</th>
-                <th data-column-id="col3" data-type="txt">col3</th>
-                <th data-column-id="col4" data-type="txt">col4</th>
-                <th data-column-id="col5" data-type="txt">col5</th>
-                <th data-column-id="col6" data-type="txt">col6</th>
-                <th data-column-id="col7" data-type="txt">col7</th>
+                <th id="col1" data-column-id="col1" data-type="txt">col1</th>
+                <th id="col2" data-column-id="col2" data-type="txt">col2</th>
+                <th id="col3" data-column-id="col3" data-type="txt">col3</th>
+                <th id="col4" data-column-id="col4" data-type="txt">col4</th>
+                <th id="col5" data-column-id="col5" data-type="txt">col5</th>
+                <th id="col6" data-column-id="col6" data-type="txt">col6</th>
+                <th id="col7" data-column-id="col7" data-type="txt">col7</th>
             </tr>
             </thead>
         </table>
@@ -69,8 +69,8 @@
             if (buttonid == "btnSubmitRiderTrip") {
 
                 reportid = "1";
+                $("#col1").text("ID");
                 $("#grid-data").bootgrid("reload");
-                $("#col1").attr("ID");
             }
         })
 

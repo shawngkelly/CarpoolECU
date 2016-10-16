@@ -36,6 +36,7 @@ public class ReportService
         g.setCol6("1");
         g.setCol7("1");
         output.add(g);
+
       }
     }
 
