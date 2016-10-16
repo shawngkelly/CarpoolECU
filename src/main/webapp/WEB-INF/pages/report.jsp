@@ -21,7 +21,7 @@
 <body>
     <div class="container" id="reports">
         <h2 class="form-heading">Trip Reports</h2>
-        <a href="/home" id="button1" class="btn btn-info" role="button">Go
+        <a href="/" id="button1" class="btn btn-info" role="button">Go
         to Home</a>
         <a href="/student" id="button2" class="btn btn-info"
            role="button">Update Students</a>
@@ -64,10 +64,13 @@
 
             var buttonid = event.currentTarget.id;
 
+
+
             if (buttonid == "btnSubmitRiderTrip") {
 
                 reportid = "1";
                 $("#grid-data").bootgrid("reload");
+                $("#col1").attr("ID");
             }
         })
 
