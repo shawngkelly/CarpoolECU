@@ -64,13 +64,12 @@
 
             var buttonid = event.currentTarget.id;
 
-
-
             if (buttonid == "btnSubmitRiderTrip") {
 
                 reportid = "1";
                 $("#col1").text("ID");
                 $("#grid-data").bootgrid("reload");
+                $("th[data-column-id='col1']" ).text( "Hot Fuzz" );
             }
         })
 
