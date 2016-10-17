@@ -202,7 +202,7 @@
             $("#btnCancelUpdate").click(function (event) {
                 event.preventDefault();
                 $("#updateAlert").css("visibility","hidden");
-                $("#updateStudentID").val("");
+                $("#updateDriverID").val("");
                 $("#updateDepartDate").val("");
                 $("#updateReturnDate").val("");
                 $("#updateCity1").val("");
@@ -233,8 +233,7 @@
                                 +
                                 ' type="button" class="btn btn-xs btn-default command-edit">'
                                 + ' <span class="glyphicon glyphicon-pencil"></span> </button> '
-                                +
-                                ' <button type="button" class="btn btn-xs btn-default command-delete" data-row-id="' + row.driverTripID + '"> '
+                                + ' <button type="button" class="btn btn-xs btn-default command-delete" data-row-id="' + row.driverTripID + '"> '
                                 + ' <span class="glyphicon glyphicon-trash"></span></button>';
 
                         return str;
