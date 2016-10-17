@@ -28,7 +28,7 @@ public class  RiderTripController {
   @RequestMapping(value = "/list", method = RequestMethod.POST)
   public RiderTripResponse getRiderTrips(){
     List<RiderTrip> riderTrips = riderTripService.getRiderTrips();
-    return new RiderTripResponse(riderTrips,riderTrips.size());
+    return new RiderTripResponse(riderTrips, riderTrips.size());
   }
 
   @ResponseBody
