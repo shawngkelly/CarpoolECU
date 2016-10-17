@@ -67,9 +67,21 @@
             if (buttonid == "btnSubmitRiderTrip") {
 
                 reportid = "1";
-                $("#col1").text("ID");
                 $("#grid-data").bootgrid("reload");
-                $("th[data-column-id='col1']" ).text( "Hot Fuzz" );
+                $("th[data-column-id='col1']" ).text( "Student ID" );
+                $("th[data-column-id='col2']").text( "First Name");
+                $("th[data-column-id='col3']").text( "Last Name");
+                $("th[data-column-id='col4']").text( "Depart Date");
+                $("th[data-column-id='col5']").text( "Return Date");
+                $("th[data-column-id='col6']").text( "City" );
+                $("th[data-column-id='col7']").css("visibility", "hidden");
+            }
+
+            else if (buttonid == "btnSubmitRiderNoTrip") {
+
+                reportid = "2";
+                $("#grid-data").bootgrid("reload");
+
             }
         })
 

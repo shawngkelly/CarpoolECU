@@ -11,7 +11,18 @@ public class RiderTrip
   private String FirstName;
   private String LastName;
   private Date departDate;
+  private Date returnDate;
   private String city;
+
+  public Date getReturnDate()
+  {
+    return returnDate;
+  }
+
+  public void setReturnDate(Date returnDate)
+  {
+    this.returnDate = returnDate;
+  }
 
   public int getID()
   {
