@@ -64,7 +64,8 @@ public class DriverTripDAO
       return jdbcTemplate.update(UPDATE, driverTrip.getDriverID(), new Date
           (driverTrip.getDepartDate().getTime()), new Date(driverTrip
           .getReturnDate().getTime()), driverTrip.getCity1(), driverTrip
-          .getCity2(),driverTrip.getCity3(), driverTrip.getSeats());}
+          .getCity2(),driverTrip.getCity3(), driverTrip.getSeats(),
+          driverTrip.getTripID());}
 
     public int deleteDriverTrip (int tripID) {
       return jdbcTemplate.update(DELETE, new Object[]{tripID});

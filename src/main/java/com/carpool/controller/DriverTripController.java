@@ -38,8 +38,7 @@ public class DriverTripController {
   @ResponseBody
   @RequestMapping(value = "/save", method = RequestMethod.POST, consumes =
       "application/json")
-  public int insertDriverTrip(@RequestBody DriverTrip driverTrip)
-  {
+  public int insertDriverTrip(@RequestBody DriverTrip driverTrip) {
     return driverTripService.insertDriverTrip(driverTrip);
   }
 
