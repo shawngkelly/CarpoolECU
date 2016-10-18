@@ -162,7 +162,7 @@
             $("#btnSubmitUpdate").click(function (event) {
                 event.preventDefault();
                 var data = {};
-                data.driverTripID = targetId;
+                data.tripID = targetId;
                 data["driverID"] = $("#updateDriverID").val();
                 data["departDate"] = splitDate($("#updateDepartDate").val());
                 data["returnDate"] = splitDate($("#updateReturnDate").val());
@@ -229,11 +229,12 @@
                                 + ' city2="'+row.city2+'"'
                                 + ' city3="'+row.city3+'"'
                                 + ' seats="'+row.seats+'"'
-                                + ' data-row-id="'+row.driverTripID+'"'
+                                + ' data-row-id="'+row.tripID+'"'
                                 +
                                 ' type="button" class="btn btn-xs btn-default command-edit">'
                                 + ' <span class="glyphicon glyphicon-pencil"></span> </button> '
-                                + ' <button type="button" class="btn btn-xs btn-default command-delete" data-row-id="' + row.driverTripID + '"> '
+                                +
+                                ' <button type="button" class="btn btn-xs btn-default command-delete" data-row-id="' + row.tripID + '"> '
                                 + ' <span class="glyphicon glyphicon-trash"></span></button>';
 
                         return str;
