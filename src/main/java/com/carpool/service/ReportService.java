@@ -5,6 +5,7 @@ import com.carpool.model.GenericReport;
 import com.carpool.model.report.RiderTrip;
 import com.carpool.model.report.RiderTripReportResponse;
 import com.carpool.model.report.RiderNoTrip;
+// david import your model here.
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,10 @@ public class ReportService
     this.reportDAO = reportDAO;
   }
 
+  // DAVID
+  //add a new if statement for reportnumber. use your information from the model
+  // you made. IE LIST<DAVID> davids.  The public RIDERTRIP... will lines will
+  //remain the same. Just add the if texts.
 
   public RiderTripReportResponse getReport(int reportNumber){
     List<GenericReport> output = new ArrayList<GenericReport>();

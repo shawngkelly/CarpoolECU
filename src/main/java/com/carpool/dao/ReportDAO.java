@@ -3,12 +3,14 @@ package com.carpool.dao;
 /**
  * Created by shawnkelly on 10/10/16.
  */
+
+//Add import statement here
 import com.carpool.model.report.RiderNoTrip;
 import com.carpool.model.report.RiderTrip;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -18,6 +20,8 @@ public class ReportDAO
   private String SELECTRIDERWITHTRIPS = "SELECT * FROM studentridertrips;";
 
   private String SELECTRIDERWNOTRIPS = "SELECT * FROM studentridernotrips;";
+
+  // DAVID ADD String here for david here.
 
   private JdbcTemplate jdbcTemplate;
 
@@ -75,4 +79,7 @@ public class ReportDAO
       return riderNoTrip;
     }
   }
+
+  // DAVID ADD  Public list and rowmapper here.
+
 }

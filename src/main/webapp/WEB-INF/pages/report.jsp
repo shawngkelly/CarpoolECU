@@ -33,6 +33,8 @@
         <button id="btnSubmitRiderNoTrip"
                 class="btn btn-sm btn-info ridertrip"
                 type="button">Rider No Trips</button>
+        <%-- DAVID add a new button here --%>
+
 
         <table id ="grid-data"
                class ="table table-condensed table-hover table-striped">
@@ -52,11 +54,15 @@
 <script src="${jquery}"></script>
 <script src="${js}"></script>
 <script src="${grid}"></script>
+
 <script>
     var reportid = "";
     function getUrl(){
         return "/report/list/"+reportid;
     }
+
+    // David add your if statement in this section for your report number.
+
     $(document).ready(function(){
 
         $(".ridertrip").click(function(event){
