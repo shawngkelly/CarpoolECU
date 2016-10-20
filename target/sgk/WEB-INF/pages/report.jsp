@@ -33,6 +33,10 @@
         <button id="btnSubmitRiderNoTrip"
                 class="btn btn-sm btn-info ridertrip"
                 type="button">Rider No Trips</button>
+        <button id="btnSubmitRiderMatchTrip"
+                class="btn btn-sm btn-info ridertrip"
+                type="button">Rider Match Trips</button>
+
 
         <table id ="grid-data"
                class ="table table-condensed table-hover table-striped">
@@ -52,11 +56,15 @@
 <script src="${jquery}"></script>
 <script src="${js}"></script>
 <script src="${grid}"></script>
+
 <script>
     var reportid = "";
     function getUrl(){
         return "/report/list/"+reportid;
     }
+
+    // David add your if statement in this section for your report number.
+
     $(document).ready(function(){
 
         $(".ridertrip").click(function(event){
@@ -82,6 +90,18 @@
                 reportid = "2";
                 $("#grid-data").bootgrid("reload");
 
+            }
+            else if (buttonid == "btnSubmitRiderMatchTrip"){
+
+                reportid = "3";
+                $("#grid-data").bootgrid("reload");
+                $("th[data-column-id='col1']" ).text( "Driver E-Mail" );
+                $("th[data-column-id='col2']").text( "Depart Date");
+                $("th[data-column-id='col3']").text( "Rider ID");
+                $("th[data-column-id='col4']").css("visibility", "hidden");
+                $("th[data-column-id='col5']").css("visibility", "hidden");
+                $("th[data-column-id='col6']").css("visibility", "hidden");
+                $("th[data-column-id='col7']").css("visibility", "hidden");
             }
         })
 

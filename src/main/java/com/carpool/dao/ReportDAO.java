@@ -7,6 +7,7 @@ package com.carpool.dao;
 //Add import statement here
 import com.carpool.model.report.RiderNoTrip;
 import com.carpool.model.report.RiderTrip;
+import com.carpool.model.report.RiderMatchTrips;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -21,7 +22,7 @@ public class ReportDAO
 
   private String SELECTRIDERWNOTRIPS = "SELECT * FROM studentridernotrips;";
 
-  // DAVID ADD String here for david here.
+  private String SELECTRIDEMATCHTRIPS = "SELECT * FROM ridermatchtrips;";
 
   private JdbcTemplate jdbcTemplate;
 
@@ -80,6 +81,25 @@ public class ReportDAO
     }
   }
 
-  // DAVID ADD  Public list and rowmapper here.
+  public List<RiderMatchTrips> getRiderMatchTrips()
+  {
+    List<RiderMatchTrips> riderMatchTrips = jdbcTemplate.query(SELECTRIDEMATCHTRIPS,
+            new Object[]{}, new RiderMatchTripsRowMapper());
+    return riderMatchTrips;
+  }
+
+  private class RiderMatchTripsRowMapper implements RowMapper
+  {
+
+    @Override
+    public Object mapRow(ResultSet resultSet, int i) throws SQLException
+    {
+      RiderMatchTrips riderMatchTrip = new RiderMatchTrips();
+      riderMatchTrip.setEmail(resultSet.getString("email"));
+      riderMatchTrip.setDepartDate(resultSet.getDate("departDate"));
+      riderMatchTrip.setRiderID(resultSet.getInt("riderID"));
+      return riderMatchTrip;
+    }
+  }
 
 }
