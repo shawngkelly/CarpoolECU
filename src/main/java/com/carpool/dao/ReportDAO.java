@@ -24,6 +24,8 @@ public class ReportDAO
 
   private String SELECTRIDEMATCHTRIPS = "SELECT * FROM ridermatchtrips;";
 
+  //Taylor add your string here.
+
   private JdbcTemplate jdbcTemplate;
 
   public void setJdbcTemplate(JdbcTemplate jdbcTemplate)
@@ -101,5 +103,7 @@ public class ReportDAO
       return riderMatchTrip;
     }
   }
+
+  //Taylor add you public, privagte and @overrie stuff here.
 
 }
