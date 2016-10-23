@@ -22,3 +22,18 @@
     padding-left: 10px;
     font-weight: bold;
 }
+.div.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color : #5747d8 !important;
+}
+.html {
+
+    background-color: #673AB7;
+}
+
+.table .table-condensed .table-hover .table-striped {
+    background-color: #810bff !important
+}
