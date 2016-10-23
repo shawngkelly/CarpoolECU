@@ -36,7 +36,9 @@
         <button id="btnSubmitRiderMatchTrip"
                 class="btn btn-sm btn-info ridertrip"
                 type="button">Rider Match Trips</button>
-
+        <button id="btnDriversWithSeats"
+                class="btn btn-sm btn-info ridertrip"
+                type="button">Drivers With Seats</button>
 
         <table id ="grid-data"
                class ="table table-condensed table-hover table-striped">
@@ -103,6 +105,18 @@
                 $("th[data-column-id='col6']").css("visibility", "hidden");
                 $("th[data-column-id='col7']").css("visibility", "hidden");
             }
+            else if (buttonid == "btnDriversWithSeats"){
+                reportid = "4"
+                $("#grid-data").bootgrid("reload");
+                $("th[data-column-id='col1']" ).text( "Driver ID" );
+                $("th[data-column-id='col2']").text( "Depart Date");
+                $("th[data-column-id='col3']").text( "1st City");
+                $("th[data-column-id='col4']").text("2nd City");
+                $("th[data-column-id='col5']").text("3rd City");
+                $("th[data-column-id='col6']").text("Open Seats");
+                $("th[data-column-id='col7']").css("visibility", "hidden");
+            }
+
         })
 
         //set up grid

@@ -8,6 +8,7 @@ package com.carpool.dao;
 import com.carpool.model.report.RiderNoTrip;
 import com.carpool.model.report.RiderTrip;
 import com.carpool.model.report.RiderMatchTrips;
+import com.carpool.model.report.DriversWithSeats;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -24,7 +25,8 @@ public class ReportDAO
 
   private String SELECTRIDEMATCHTRIPS = "SELECT * FROM ridermatchtrips;";
 
-  //Taylor add your string here.
+  //Taylor add your string here
+  private String SELECTDRIVERSWITHSEATS = "SELECT * FROM driverswithseats";
 
   private JdbcTemplate jdbcTemplate;
 
@@ -38,7 +40,7 @@ public class ReportDAO
 
   }
 
-    public List<RiderTrip> getRiderTrips()
+  public List<RiderTrip> getRiderTrips()
   {
     List<RiderTrip> riderTrips = jdbcTemplate.query(SELECTRIDERWITHTRIPS, new
         Object[]{}, new RiderTripRowMapper());
@@ -103,7 +105,27 @@ public class ReportDAO
       return riderMatchTrip;
     }
   }
-
+    public List<DriversWithSeats> getDriversWithSeats()
+    {
+        List<DriversWithSeats> driversWithSeats = jdbcTemplate.query(SELECTDRIVERSWITHSEATS, new
+                Object[]{}, new DriversWithSeatsRowMapper());
+        return driversWithSeats;
+    }
   //Taylor add you public, privagte and @overrie stuff here.
+    private class DriversWithSeatsRowMapper implements RowMapper
+  {
+      @Override
+      public Object mapRow(ResultSet resultSet, int i) throws SQLException
+      {
+          DriversWithSeats driversWithSeats = new DriversWithSeats();
+          driversWithSeats.setDriverID(resultSet.getInt("driverID"));
+          driversWithSeats.setDepartDate(resultSet.getDate("departDate"));
+          driversWithSeats.setCity1(resultSet.getString("city1"));
+          driversWithSeats.setCity2(resultSet.getString("city2"));
+          driversWithSeats.setCity3(resultSet.getString("city3"));
+          driversWithSeats.setSeats(resultSet.getInt("seats"));
+          return driversWithSeats;
+      }
+  }
 
 }

@@ -6,7 +6,7 @@ import com.carpool.model.report.RiderTrip;
 import com.carpool.model.report.RiderTripReportResponse;
 import com.carpool.model.report.RiderNoTrip;
 import com.carpool.model.report.RiderMatchTrips;
-// david import your model here.
+import com.carpool.model.report.DriversWithSeats;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +65,20 @@ public class ReportService
       }
     }
 
+    //Taylor add if (report == 4)
+    if(reportNumber ==4) {
+      List<DriversWithSeats> driversWithSeats = reportDAO.getDriversWithSeats();
+      for(int i=0; i<driversWithSeats.size(); i++){
+        GenericReport g = new GenericReport();
+        g.setCol1(String.valueOf(driversWithSeats.get(i).getDriverID()));
+        g.setCol2(String.valueOf(driversWithSeats.get(i).getDepartDate()));
+        g.setCol3(String.valueOf(driversWithSeats.get(i).getCity1()));
+        g.setCol4(String.valueOf(driversWithSeats.get(i).getCity2()));
+        g.setCol5(String.valueOf(driversWithSeats.get(i).getCity3()));
+        g.setCol6(String.valueOf(driversWithSeats.get(i).getSeats()));
+        output.add(g);
+      }
+    }
     RiderTripReportResponse  riderTripReportResponse = new
         RiderTripReportResponse(output, output.size());
 
