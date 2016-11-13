@@ -14,6 +14,12 @@
 	<a href="/driver">go to driver</a>
 	<a href="/student" id="button1" class="btn btn-info" role="button">Update
 		Students</a>
+	<a href="/riderTrip" id="button2" class="btn btn-info"
+	role="button">Update Rider Trip</a>
+	<a href="/driverTrip" id="button4" class="btn btn-info"
+	   role="button">Update Driver Trip</a>
+	<a href="/report" id =button3" class="btn btn-info" role="button">Go to
+	Reports</a>
 
 </body>
 </html>

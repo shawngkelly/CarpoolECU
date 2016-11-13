@@ -61,4 +61,44 @@
         <property name="studentService" ref="studentService"/>
     </bean>
 
+    <bean id="riderTripDAO" class="com.carpool.dao.RiderTripDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="riderTripService" class="com.carpool.service.RiderTripService">
+        <property name="riderTripDAO" ref="riderTripDAO" />
+    </bean>
+
+    <bean id="riderTripController"
+          class="com.carpool.controller.RiderTripController">
+        <property name="riderTripService" ref="riderTripService"/>
+    </bean>
+
+    <bean id="reportDAO" class="com.carpool.dao.ReportDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="reportService" class="com.carpool.service.ReportService">
+        <property name="reportDAO" ref="reportDAO"/>
+    </bean>
+
+    <bean id="reportController"
+          class="com.carpool.controller.ReportController">
+        <property name="reportService" ref="reportService"/>
+    </bean>
+
+    <bean id="driverTripDAO" class="com.carpool.dao.DriverTripDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="driverTripService"
+          class="com.carpool.service.DriverTripService">
+        <property name="driverTripDAO" ref="driverTripDAO"/>
+    </bean>
+
+    <bean id="driverTripController"
+          class="com.carpool.controller.DriverTripController">
+        <property name="driverTripService" ref="driverTripService" />
+    </bean>
+
 </beans>
