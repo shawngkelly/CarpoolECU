@@ -130,18 +130,8 @@
             navigation: 0,
             selection:true,
             sorting:false
-
-
-
-
         })
     })
-
-
-
-
-
 </script>
-
 </body>
 </html>
