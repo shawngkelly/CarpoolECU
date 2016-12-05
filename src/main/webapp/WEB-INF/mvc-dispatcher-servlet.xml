@@ -100,5 +100,17 @@
           class="com.carpool.controller.DriverTripController">
         <property name="driverTripService" ref="driverTripService" />
     </bean>
+    <bean id="tripsToApproveDAO"
+          class="com.carpool.dao.TripsToApproveDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <bean id="tripsToApproveService"
+          class="com.carpool.service.TripsToApproveService">
+        <property name="tripsToApproveDAO" ref="tripsToApproveDAO"/>
+    </bean>
+    <bean id="tripsToApproveController"
+          class="com.carpool.controller.TripsToApproveController">
+        <property name="tripsToApproveService" ref="tripsToApproveService" />
+    </bean>
 
 </beans>
