@@ -34,17 +34,6 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="driverDAO" class="com.carpool.dao.DriverDAO">
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
-    </bean>
-
-    <bean id="driverService" class="com.carpool.service.DriverService">
-        <property name="driverDAO" ref="driverDAO"/>
-    </bean>
-
-    <bean id="driverController" class="com.carpool.controller.DriverController">
-        <property name="driverService" ref="driverService"/>
-    </bean>
 
 
 

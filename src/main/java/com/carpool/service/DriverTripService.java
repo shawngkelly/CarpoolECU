@@ -10,6 +10,8 @@ import java.util.*;
 /**
  * Created by shawnkelly on 10/16/16.
  */
+//Class to implement the DriverTripDAO class
+
 public class DriverTripService
 {
   private DriverTripDAO driverTripDAO;
