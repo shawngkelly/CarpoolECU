@@ -13,8 +13,10 @@
     <spring:url value="/resources/js/bootstrap.min.js" var="js"/>
     <spring:url value="/resources/js/jquery-3.1.0.min.js" var="jquery"/>
     <spring:url value="/resources/jquery.bootgrid-1.3.1/jquery.bootgrid.js" var="grid"/>
+    <spring:url value="/resources/css/styles.css" var="styles"/>
     <link href="${css}" rel="stylesheet" />
     <link href="${site}" rel="stylesheet" />
+    <link href="${styles}" rel="stylesheet" />
 
 </head>
 <body>
