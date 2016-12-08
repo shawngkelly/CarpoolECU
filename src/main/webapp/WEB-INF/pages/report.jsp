@@ -99,7 +99,7 @@
 
                 reportid = "3";
                 $("#grid-data").bootgrid("reload");
-                $("th[data-column-id='col1']" ).text( "Driver E-Mail" );
+                $("th[data-column-id='col1']" ).text( "Rider E-Mail" );
                 $("th[data-column-id='col2']").text( "Depart Date");
                 $("th[data-column-id='col3']").text( "Rider ID");
                 $("th[data-column-id='col4']").css("visibility", "hidden");
