@@ -1,4 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%-- HTML to set the forms up for the webpages. --%>
+
 <html>
 <head>
 	<spring:url value="/resources/css/bootstrap.min.css" var="css"/>
@@ -13,7 +16,7 @@
 <body>
 
 	<h1>ECU Carpool App</h1>
-	<a href="/driver">go to driver</a>
+
 	<a href="/student" id="button1" class="btn btn-info" role="button"
 	style="position:fixed; bottom:60%; left:30.7%; right:30%">
 		Update Students</a>

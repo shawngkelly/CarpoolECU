@@ -9,6 +9,11 @@ import java.util.*;
 /**
  * Created by shawnkelly on 11/23/16.
  */
+
+//Class to implement the DAO class. Needs to pull in matches.
+//Unfinished as of 12/03/2016
+
+
 public class TripsToApproveService
 {
  private TripsToApproveDAO tripsToApproveDAO;

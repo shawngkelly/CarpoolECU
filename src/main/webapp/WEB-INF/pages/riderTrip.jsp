@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%-- HTML to set the forms up for the webpages. --%>
+
 <html>
 <head>
     <spring:url value="/resources/css/bootstrap.min.css" var="css"/>
@@ -96,6 +99,9 @@
         var arr = dateIn.split("-");
         return new Date(arr[0],arr[1]-1,arr[2]);
     }
+
+    /* JavaScript to set event listeners and make grid data */
+
     $(document).ready(function () {
         var targetId;
 

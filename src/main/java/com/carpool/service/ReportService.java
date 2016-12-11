@@ -1,5 +1,7 @@
 package com.carpool.service;
 
+//Make sure to add any model classes for new reports.
+
 import com.carpool.dao.ReportDAO;
 import com.carpool.model.GenericReport;
 import com.carpool.model.report.RiderTrip;
@@ -14,14 +16,27 @@ import java.util.List;
 /**
  * Created by shawnkelly on 10/9/16.
  */
+
+//Class to implement the various reports. Must have reportID number sent by jsp listener.
+
 public class ReportService
 {
+
+//Calls the Dao class to make the object
+
   private ReportDAO reportDAO;
+
 
   public void setReportDAO(ReportDAO reportDAO)
   {
     this.reportDAO = reportDAO;
   }
+
+
+//These are reports and will only be used to view.  The int will
+//come from the jsp listener in the correct page. The report is
+//columns will pulled in from the generic model. The data will
+//be pulled in from the reportDAO. Comment out unused columns
 
   public RiderTripReportResponse getReport(int reportNumber){
     List<GenericReport> output = new ArrayList<GenericReport>();
@@ -65,7 +80,7 @@ public class ReportService
       }
     }
 
-    //Taylor add if (report == 4)
+
     if(reportNumber ==4) {
       List<DriversWithSeats> driversWithSeats = reportDAO.getDriversWithSeats();
       for(int i=0; i<driversWithSeats.size(); i++){

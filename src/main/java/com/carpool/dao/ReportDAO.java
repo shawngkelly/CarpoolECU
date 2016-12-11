@@ -4,7 +4,9 @@ package com.carpool.dao;
  * Created by shawnkelly on 10/10/16.
  */
 
-//Add import statement here
+//Add import statement here if adding any new models for reports
+
+
 import com.carpool.model.report.RiderNoTrip;
 import com.carpool.model.report.RiderTrip;
 import com.carpool.model.report.RiderMatchTrips;
@@ -17,15 +19,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+//Class to access database with SQL statements and queries.
+
 public class ReportDAO
 {
+//The following are variables to perform SQL statements in the database.
+//Calls all the views.
+
   private String SELECTRIDERWITHTRIPS = "SELECT * FROM studentridertrips;";
 
   private String SELECTRIDERWNOTRIPS = "SELECT * FROM studentridernotrips;";
 
   private String SELECTRIDEMATCHTRIPS = "SELECT * FROM ridermatchtrips;";
 
-  //Taylor add your string here
+
   private String SELECTDRIVERSWITHSEATS = "SELECT * FROM driverswithseats";
 
   private JdbcTemplate jdbcTemplate;
@@ -49,6 +56,9 @@ public class ReportDAO
 
   private class RiderTripRowMapper implements RowMapper
   {
+
+
+//Calls the rowmapper to return the data in model object.
 
     @Override
     public Object mapRow(ResultSet resultSet, int i) throws SQLException

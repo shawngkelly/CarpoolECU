@@ -13,10 +13,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//This maps the to the correct jsp page.
+
+
 @Controller
 @RequestMapping("/matchedTrips")
+
+/* Controller class will call up the service layer and map the rest of the
+jsp page*/
+
 public class TripsToApproveController
 {
+
+/*Calls the Service class to create the object  */
+
   private TripsToApproveService tripsToApproveService;
 
   public void setTripsToApproveService(TripsToApproveService tripsToApproveService)
@@ -30,6 +40,8 @@ public class TripsToApproveController
     return "tripsToApprove";
   }
 
+/*Calls Response to generate the list of TripsToApprove. Returns number of trips and TripsToApprove objects */
+
   @ResponseBody
   @RequestMapping(value ="/list", method = RequestMethod.POST)
   public TripsToApproveResponse getTripsToApprove()
@@ -39,6 +51,8 @@ public class TripsToApproveController
     return new TripsToApproveResponse(tripsToApproves, tripsToApproves.size());
   }
 
+//This will return an int to specify which TripToApprove will be inserted as a new trip.
+
   @ResponseBody
   @RequestMapping(value = "/save", method = RequestMethod.POST, consumes =
       "application/json")
@@ -46,6 +60,8 @@ public class TripsToApproveController
   {
     return tripsToApproveService.insertTripsToApprove(tripsToApprove);
   }
+
+//This will return an int as the TripToaprove to delete the correct trip
 
   @ResponseBody
   @RequestMapping(value = "/delete/{tripID}", method = RequestMethod.GET)

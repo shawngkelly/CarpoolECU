@@ -14,8 +14,13 @@ import java.util.List;
  * Created by shawnkelly on 10/6/16.
  */
 
+//Class to access database with SQL statements and queries..
+
 public class RiderTripDAO
 {
+
+//The following are variables to perform SQL statements in the database.
+
   private String SELECT = "SELECT * FROM riderTrip;";
 
   private String INSERT = "INSERT INTO ridertrip (riderID, departDate,returnDate,city) VALUES" +
@@ -47,18 +52,7 @@ public class RiderTripDAO
   }
 
 
-
-  /* Creates genericreports
-
-  public List<RiderTrip> getGenericReports(){
-    List<RiderTrip> genericReports = jdbcTemplate.query(SELECTRIDERTRIPS,
-        new Object[]{}, new GenericReportRowMapper());
-    return genericReports;
-  } */
-
-  // This checks to make sure student is a rider before insert. If the
-  // student id is a rider it will return a 1.
-
+//Checks to make sure a student is a rider before inserting into table.
 
   public int insertRiderTrip(RiderTrip riderTrip){
     int isRider = jdbcTemplate.queryForObject(ISRIDER, Integer.class,
@@ -95,19 +89,3 @@ public class RiderTripDAO
     }
   }
 }
-  /*private class GenericReportRowMapper implements RowMapper{
-
-    @Override
-    public Object mapRow(ResultSet resultSet, int i) throws SQLException {
-      GenericReport genericReport = new GenericReport();
-      genericReport.setCol1(resultSet.getString("col1"));
-      genericReport.setCol2(resultSet.getString("col2"));
-      genericReport.setCol3(resultSet.getString("col3"));
-      genericReport.setCol4(resultSet.getString("col4"));
-      genericReport.setCol5(resultSet.getString("col5"));
-      genericReport.setCol6(resultSet.getString("col6"));
-      genericReport.setCol7(resultSet.getString("col7"));
-      return genericReport;
-
-    }
-  } */

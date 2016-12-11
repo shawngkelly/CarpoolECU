@@ -5,6 +5,10 @@ package com.carpool.model.report;
  */
 import java.util.Date;
 
+//Model class creates the object to hold data from or going to database.
+//Should be in the same format as the table or view it relates too.
+
+
 public class DriversWithSeats {
     private int driverID;
     private Date departDate;

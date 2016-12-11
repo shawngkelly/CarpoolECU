@@ -17,13 +17,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/driverTrip")
 
-/*DriverTripController class will call up the service layer and map the rest of the
+/* Controller class will call up the service layer and map the rest of the
 jsp page*/
 
 public class DriverTripController {
 
 
-/*Calls the class DriverTripService to create the object  */
+/*Calls the Service class to create the object  */
 
   private DriverTripService driverTripService;
 
@@ -39,7 +39,7 @@ public class DriverTripController {
     return "driverTrip";
   }
 
-/*Calls DriverTripResponse to generate the list of Drivertrips. Returns number of trips and drivertrip objects */
+/*Calls Response to generate the list of Drivertrips. Returns number of trips and drivertrip objects */
 
   @ResponseBody
   @RequestMapping(value = "/list", method = RequestMethod.POST)

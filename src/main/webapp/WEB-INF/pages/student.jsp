@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%-- HTML to set the forms up for the webpages. --%>
+
 <html>
 <head>
     <spring:url value="/resources/css/bootstrap.min.css" var="css"/>
@@ -55,13 +58,7 @@
                        value="Rider">
             </div>
 
-            <%--input type="text" id="driver" class="form-control"
-               placeholder="Driver" required--%>
-            <%----<label for="rider" class="sr-only">Rider</label>-----%>
 
-
-            <%--input type="text" id="rider" class="form-control"
-                   placeholder="Rider?" required--%>
         </div>
 
 
@@ -116,6 +113,8 @@
 <script src="${js}"></script>
 <script src="${grid}"></script>
 <script>
+
+    /* JavaScript to set event listeners and make grid data */
 
     $(document).ready(function () {
         var targetId;

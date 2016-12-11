@@ -1,4 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%-- HTML to set the forms up for the webpages. --%>
+
 <html>
 <head>
 	<spring:url value="/resources/css/bootstrap.min.css" var="css"/>

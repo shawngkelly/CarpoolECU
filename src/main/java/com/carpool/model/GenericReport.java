@@ -5,6 +5,11 @@ import java.util.*;
 /**
  * Created by shawnkelly on 10/9/16.
  */
+
+//Generic Model class creates a generic model to be flexible for different reports models.
+
+
+
 public class GenericReport
 {
   private String col1;

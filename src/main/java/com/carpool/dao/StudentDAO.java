@@ -11,18 +11,19 @@ import java.util.List;
 /**
  * Created by shawngkelly on 9/24/16.
  */
+
+//Class to access database with SQL statements and queries.
+
 public class StudentDAO {
+
+//Class to access database with SQL statements and queries.
 
   private String SELECT = "SELECT * FROM student;";
   private String INSERT = "INSERT INTO student (firstName,lastName, email, " +
       "driver, rider) values "
       + " (?,?,?,?,?);";
 
-
-
-
-
-  private String UPDATE = "UPDATE student SET firstName = ?, lastName = ?, " +
+    private String UPDATE = "UPDATE student SET firstName = ?, lastName = ?, " +
       "email =?, driver = ?, rider = ? " +
       "WHERE " +
       "idStudent = ?;";
@@ -63,6 +64,9 @@ public class StudentDAO {
   public int deleteStudent(int idStudent){
     return jdbcTemplate.update(DELETE,new Object[]{idStudent});
   }
+
+
+//Calls the rowmapper to return the data in model object.
 
   private class StudentRowMapper implements RowMapper{
 

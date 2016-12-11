@@ -4,6 +4,10 @@ import java.util.List;
 /**
  * Created by shawnkelly on 10/6/16.
  */
+
+//Response Model class creates the List object that is used by the other classes to implement
+//the base model.
+
 public class RiderTripResponse
 {
   private List<RiderTrip> rows;

@@ -5,6 +5,10 @@ import java.util.List;
 /**
  * Created by shawnkelly on 11/23/16.
  */
+
+//Response Model class creates the List object that is used by the other classes to implement
+//the base model.
+
 public class TripsToApproveResponse
 {
   private List<TripsToApprove> rows;

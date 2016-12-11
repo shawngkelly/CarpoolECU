@@ -12,8 +12,14 @@ import java.util.List;
 /**
  * Created by shawnkelly on 10/16/16.
  */
+
+
+//Class to access database with SQL statements and queries.
+
 public class DriverTripDAO
 {
+  //The following are variables to perform SQL statements in the database.
+
   private String SELECT = "SELECT * FROM drivertrip;";
 
   private String INSERT = "INSERT INTO drivertrip ( driverID, departDate, "

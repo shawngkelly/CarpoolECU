@@ -14,6 +14,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 
+//Class to access database with SQL statements and queries.
+//Unfinished as of 12/03/2016
+
 public class TripsToApproveDAO
 {
  private  String SELECT = "SELECT * FROM matchedtrips;";

@@ -5,6 +5,10 @@ import java.util.Date;
 /**
  * Created by djosh on 10/19/2016.
  */
+
+//Model class creates the object to hold data from or going to database.
+//Should be in the same format as the table or view it relates too.
+
 public class RiderMatchTrips {
     private String email;
     private Date departDate;
