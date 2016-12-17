@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%-- HTML to set the forms up for the webpages. --%>
+
 <html>
 <head>
     <spring:url value="/resources/css/bootstrap.min.css" var="css"/>
@@ -62,12 +65,19 @@
 <script src="${grid}"></script>
 
 <script>
+
+    /* JavaScript to set event listeners and make grid data */
+    /* Different buttons have a var depending on which report
+    they need to access. Be sure to check the service class
+    to match the correct report number
+     */
+
     var reportid = "";
     function getUrl(){
         return "/report/list/"+reportid;
     }
 
-    // David add your if statement in this section for your report number.
+
 
     $(document).ready(function(){
 
@@ -99,7 +109,7 @@
 
                 reportid = "3";
                 $("#grid-data").bootgrid("reload");
-                $("th[data-column-id='col1']" ).text( "Driver E-Mail" );
+                $("th[data-column-id='col1']" ).text( "Rider E-Mail" );
                 $("th[data-column-id='col2']").text( "Depart Date");
                 $("th[data-column-id='col3']").text( "Rider ID");
                 $("th[data-column-id='col4']").css("visibility", "hidden");

@@ -104,4 +104,14 @@
         <property name="tripsToApproveService" ref="tripsToApproveService" />
     </bean>
 
+  <!-- <bean id="loginDAO" class="com.carpool.dao.LoginDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <bean id="loginService" class="com.carpool.service.LoginService">
+        <property name="loginDAO" ref="loginDAO" />
+    </bean>
+    <bean id="loginController" class="com.carpool.controller.LoginController" >
+        <property name="loginService" ref="loginService" /> -->
+
+
 </beans>

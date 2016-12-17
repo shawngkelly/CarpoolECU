@@ -11,6 +11,9 @@
 	<link href="${site}" rel="stylesheet" />
 	<link href="${styles}" rel="stylesheet" />
 
+<%-- HTML to set the forms up for the webpages. --%>
+
+
 </head>
 <body>
 	<div class="container" id="addDriverForm">
@@ -45,7 +48,8 @@
 	<script src="${jquery}"></script>
 	<script src="${js}"></script>
 	<script src="${grid}"></script>
-	<script>
+	<script> /* JavaScript to set event listeners and make grid data */
+
 		$(document).ready(function () {
 					var targetId;
 

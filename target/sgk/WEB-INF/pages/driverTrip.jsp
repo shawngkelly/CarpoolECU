@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%-- HTML to set the forms up for the webpages. --%>
+
 <html>
 <head>
     <spring:url value="/resources/css/bootstrap.min.css" var="css"/>
@@ -119,7 +122,7 @@
 
             $("#btnSubmit").click(function (event) {
                 event.preventDefault();
-
+                /* JavaScript to set event listeners and make grid data */
                 var data = {};
                 data["driverID"] = $("#driverID").val();
                 data["departDate"] = splitDate($("#departDate").val());

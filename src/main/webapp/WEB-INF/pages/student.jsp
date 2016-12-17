@@ -32,7 +32,7 @@
         they are being mapped for updates and inserts.---%>
 
         <label for="firstName" class="sr-only">First Name</label>
-        <input type="text" id="firstName" class="form-control" placeholder="First Name" required autofocus>
+        <input type="text" id="firstName" class="form-control" style="margin-top: 15px" placeholder="First Name" required autofocus>
         <label for="lastName" class="sr-only">Last Name</label>
         <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
         <label for="email" class="sr-only">Email</label>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="col-sm-1">
-                <input type="checkbox" id="driver" class="form-control"/>
+                <input type="checkbox" id="driver" class="form-control" />
             </div>
 
             <div class="col-sm-1">
@@ -127,8 +127,8 @@
             data["lastName"] = $("#lastName").val();
             data["email"] = $("#email").val();
 
-            data["driver"] = $("#Driver").is(":checked");
-            data["rider"] = $("#Rider").is(":checked");
+            data["driver"] = $("#driver").is(":checked");
+            data["rider"] = $("#rider").is(":checked");
 
             $.ajax({
                 type: "POST",
@@ -145,8 +145,8 @@
                     $("#firstName").val("");
                     $("#lastName").val("");
                     $("#email").val("");
-                    $("#Driver").prop('checked', false);
-                    $("#Rider").prop('checked', false);   //Resets form
+                    $("#driver").prop('checked', false);
+                    $("#rider").prop('checked', false);   //Resets form
 
 
                     $("#grid-data").bootgrid("reload");
