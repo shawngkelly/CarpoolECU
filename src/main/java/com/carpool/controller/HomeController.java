@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class HomeController {
 
- // Maps the home page for the jsp.
+	// Maps the home page for the jsp.
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String loadHome(ModelMap model) {
 		return "home";
 	}
-
 }
+
+

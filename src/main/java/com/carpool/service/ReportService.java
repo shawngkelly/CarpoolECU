@@ -39,7 +39,8 @@ public class ReportService
 //be pulled in from the reportDAO. Comment out unused columns
 
   public RiderTripReportResponse getReport(int reportNumber){
-    List<GenericReport> output = new ArrayList<GenericReport>();
+    List<GenericReport> output = new ArrayList<
+            >();
 
     if(reportNumber == 1){
       List<RiderTrip> riderTrips = reportDAO.getRiderTrips();

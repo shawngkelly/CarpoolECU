@@ -26,7 +26,7 @@
 	<a href="/driverTrip" id="button4" class="btn btn-info" role="button"
 	style="position:fixed; bottom:30%; left:30.7%; right:30%">
 		Update Driver Trip</a>
-	<a href="/report" id =button3" class="btn btn-info" role="button"
+	<a href="/report" id ="button3" class="btn btn-info" role="button"
 	style="position:fixed; bottom:15%; left:30.7%; right:30%">
 		Go to Reports</a>
 
